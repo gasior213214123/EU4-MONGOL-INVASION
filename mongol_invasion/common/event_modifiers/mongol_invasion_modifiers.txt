@@ -1,11 +1,9 @@
 mongolic_invasion = {
-	tolerance_heathen = 3
-	tolerance_heretic = 3
 	interest = -5
 	land_morale = 0.35
 	discipline = 0.3
 	global_manpower_modifier = 1
-	ae_impact = -0.99	
+	ae_impact = -1	
 	technology_cost = -0.5
 	idea_cost = -0.5
 	prestige = 5
@@ -35,6 +33,8 @@ mongolic_invasion = {
 	max_states = 20
 	global_missionary_strength = 0.5
 	missionary_maintenance_cost = -0.5
+	colonists = 2
+	missionaries = 3
 }
 
 players_mongolic_invasion = {
