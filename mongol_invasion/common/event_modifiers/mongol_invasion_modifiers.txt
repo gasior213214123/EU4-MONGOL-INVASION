@@ -42,3 +42,14 @@ players_mongolic_invasion = {
 	global_missionary_strength = 0.5
 	missionary_maintenance_cost = -0.3
 }
+
+huszlew_bastion = {
+	defensiveness = 0.25
+	supply_limit_modifier = 1
+	regiment_recruit_speed = -0.5
+	local_state_maintenance_modifier = -0.15
+}
+
+zydon_pole = {
+	trade_goods_size_modifier = 0.01
+}

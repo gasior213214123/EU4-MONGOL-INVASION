@@ -37,6 +37,11 @@ opinion_invasion_vassal = {
 	max = 4000
 }
 
+opinion_player_solidarity = {
+	opinion = 4000
+	max = 4000
+}
+
 republic_same_religion = {
 	opinion = 10
 }

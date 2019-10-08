@@ -396,7 +396,15 @@ age_of_reformation = {
 		}
 		ab_mughal_artillery = {
 			allow = {
-				tag = MUG
+				OR = {
+					tag = MUG
+					AND = {
+						ai = no
+						capital_scope = {
+							area = tirol_area
+						}
+					}
+				}
 			}
 			modifier = {
 				artillery_cost = -0.5
@@ -588,7 +596,15 @@ age_of_absolutism = {
 		}
 		ab_dutch_anti_corruption = {
 			allow = {
-				tag = NED
+				OR = {
+					tag = NED
+					AND = {
+						ai = no
+						capital_scope = {
+							area = holland_area
+						}
+					}
+				}
 			}
 			modifier = {
 				yearly_corruption = -0.2
@@ -599,7 +615,20 @@ age_of_absolutism = {
 		}	
 		ab_sweden_manpower = {
 			allow = {
-				tag = SWE
+				OR = {
+					tag = SWE
+					AND = {
+						ai = no
+						OR = {
+							capital_scope = {
+								area = braunschweig_area
+							}
+							capital_scope = {
+								area = mittelmark_area
+							}
+						}
+					}
+				}
 			}
 			modifier = {
 				manpower_recovery_speed = 0.35

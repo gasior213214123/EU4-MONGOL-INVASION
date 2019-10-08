@@ -5,7 +5,7 @@ country_event = {
 	id = flavor_kha.1
 	title = "flavor_kha.EVTNAME1"
 	desc = "flavor_kha.EVTDESC1"
-	picture = RELIGION_eventPicture
+	picture = HORDE_ON_HORSEBACK_eventPicture
 	
 	fire_only_once = yes
 	
@@ -33,6 +33,7 @@ country_event = {
         set_government_rank = 3
 		every_country = {
 			add_opinion = { who = ROOT modifier = opinion_invasion }
+			country_event = { id = flavor_kha.6 }
 		}
 	}
 }
@@ -41,7 +42,7 @@ country_event = {
 	id = flavor_kha.2
 	title = "flavor_kha.EVTNAME2"
 	desc = "flavor_kha.EVTDESC2"
-	picture = RELIGION_eventPicture
+	picture = HORDE_ON_HORSEBACK_eventPicture
 	
 	
 	trigger = {
@@ -69,11 +70,12 @@ country_event = {
 	id = flavor_kha.3
 	title = "flavor_kha.EVTNAME3"
 	desc = "flavor_kha.EVTDESC3"
-	picture = RELIGION_eventPicture
+	picture = FEAST_eventPicture
 	
 	
 	trigger = {
 		is_subject_other_than_tributary_trigger = yes
+		NOT = { has_country_flag = kha_vassal_influence }
 		any_known_country = {
 			overlord_of = ROOT
 			has_country_flag = kha_mongol_invasion
@@ -87,7 +89,7 @@ country_event = {
 	
 	option = {				
 		name = "flavor_kha.EVTOPTA3"	
-
+		set_country_flag = kha_vassal_influence
 		every_country = {
 			limit = {
 				overlord_of = ROOT
@@ -104,7 +106,7 @@ country_event = {
 	id = flavor_kha.4
 	title = "flavor_kha.EVTNAME4"
 	desc = "flavor_kha.EVTDESC4"
-	picture = MILITARY_CAMP_eventPicture
+	picture = FEAST_eventPicture
 	
 	is_triggered_only = yes
 	
@@ -121,23 +123,90 @@ country_event = {
 	id = flavor_kha.5
 	title = "flavor_kha.EVTNAME5"
 	desc = "flavor_kha.EVTDESC5"
-	picture = RELIGION_eventPicture
-	
-	fire_only_once = yes
+	picture = LAND_MILITARY_eventPicture
 	
 	trigger = {
 		ai = no
+		NOT = { has_country_flag = kha_player_boost }
 	}
 	
 	mean_time_to_happen = {
 		months = 1
 	}
-	
+
 	option = {				
 		name = "flavor_kha.EVTOPTA5"
+		set_country_flag = kha_player_boost
         add_country_modifier = {
                 name = "players_mongolic_invasion"	
                 duration = -1
         }
+		every_country = {
+			limit = {
+				ai = no
+			}
+			add_opinion = { who = ROOT modifier = opinion_player_solidarity }
+		}
+	}
+}
+
+
+# Mongol Invasion info
+country_event = {
+	id = flavor_kha.6
+	title = "flavor_kha.EVTNAME6"
+	desc = "flavor_kha.EVTDESC6"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {				
+		name = "flavor_kha.EVTOPTA6"
+	}
+}
+
+# Huszlew Wielki
+country_event = {
+	id = flavor_kha.7
+	title = "flavor_kha.EVTNAME7"
+	desc = "flavor_kha.EVTDESC7"
+	picture = CITY_VIEW_eventPicture
+
+	trigger = {
+		ai = no
+		capital_scope = {
+			area = tirol_area
+		}
+		owns = 269	
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+
+	option = {				
+		name = "flavor_kha.EVTOPTA7"
+		269 = {
+			change_province_name = Huszlew
+			rename_capital = Wielki Huszlew
+			add_base_tax = 5
+			add_base_production = 5
+			add_base_manpower = 5
+			add_province_modifier = {
+				name = "huszlew_bastion"
+				duration = -1
+			}
+		}
+		add_country_modifier {
+			name = "zydon_pole"
+			duration = -1
+		}
+		define_heir = {
+			dynasty = "von Huszlew"
+			DIP = 5
+			AMN = 5
+			MIL = 5
+			claim = 100
+		}
 	}
 }
